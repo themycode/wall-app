@@ -1,0 +1,28 @@
+/* src/components/WallpaperItem/index.scss */
+
+.wallpaper-item {
+  position: relative; 
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 10px;
+  /* 使用宽高比来确保一致的外观 */
+  aspect-ratio: 2/3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.wallpaper-image {
+  width: 100%;
+  height: 100%;
+  object-fit:contain;  
+  display: block; 
+  // position: fixed;
+}

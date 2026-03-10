@@ -1,0 +1,110 @@
+/* 引入 taro-ui 样式 */
+@import "~taro-ui/dist/style/index.scss";
+
+/* 全局基础设置 */
+:root {
+  --vh: 1vh;
+  --primary-text: #333333; 
+  --secondary-text: #666666;
+  --auxiliary-text: #999999;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 防止下拉出现黑块 - 增强版 */
+:root {
+  --vh: 1vh; /* 将在JS中动态设置 */
+}
+
+html, body {
+  overscroll-behavior: none; /* 防止页面过度滚动 */
+  touch-action: manipulation; /* 优化触摸行为 */
+  height: 100%;
+  height: calc(var(--vh, 1vh) * 100); /* 使用CSS变量解决移动浏览器100vh问题 */
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  // overflow: hidden; /* 防止页面滚动超出边界 */
+  position: relative;  /* 确保页面的根元素有相对定位 */
+  width: 100%;
+  background-color: #fff; /* 确保背景是白色，而不是默认的黑色 */
+}
+
+/* 适用于Taro应用的根元素 */
+page, .taro_page, .taro_router, .taro-tabbar__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  height: calc(var(--vh, 1vh) * 100);
+  // overflow: hidden; /* 防止页面滚动 */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: #fff;
+  padding-top: env(safe-area-inset-top); /* 增加顶部安全区域 */
+  box-sizing: border-box;
+}
+
+/* 确保所有页面内容都有足够间距 */
+.taro_page {
+  padding-top: calc(env(safe-area-inset-top, 40px) + 30px);
+}
+
+/* 为所有页面内容容器添加基础间距 */
+.taro_page > .taro_page__content {
+  padding-top: 20px;
+}
+
+/* 确保所有页面容器都有正确的滚动行为 */
+.taro-tabbar__panel, .taro_page, .taro_container {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: #fff; /* 确保背景是白色 */
+}
+
+/* 确保滚动视图正常工作 */
+// .taro-scroll-view {
+//   -webkit-overflow-scrolling: touch;
+// }
+
+/* 新增全局样式 */
+.loading-text, .no-more-text {
+  text-align: center;
+  padding: 10px 0;
+  color: var(--secondary-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.featured-badge {
+  background-color: #e53935;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 全局文本样式 */
+.title-text {
+  font-size: 18px;
+  color: var(--primary-text);
+  font-weight: 500;
+}
+
+.body-text {
+  font-size: 16px;
+  color: var(--primary-text);
+  line-height: 1.6;
+}
+
+.caption-text {
+  font-size: 14px;
+  color: var(--secondary-text);
+}
